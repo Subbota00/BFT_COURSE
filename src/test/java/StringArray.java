@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class StringArray {
     public static void main(String[] args) {
         String[] words = {"привет", "ПОКА", "гипербола"};
@@ -10,6 +12,10 @@ public class StringArray {
                     System.out.println("Результат обработки строки: " + newWord);
                 }
             }
+        }
+        Random random = new Random();
+        int randomIndex = random.nextInt(3); {
+            System.out.println("Случайная строка: " + words[randomIndex]);
         }
     }
 }
