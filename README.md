@@ -1,0 +1,1 @@
+Allure отчет доступен по ссылке - http://192.168.0.191:55419/index.html#suites/216225766869471ecdbae8afac74ccf0/af03288d811326e0/
