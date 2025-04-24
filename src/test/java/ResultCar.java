@@ -1,4 +1,4 @@
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class ResultCar {
     Car car = new Car(2003, "Ford");
