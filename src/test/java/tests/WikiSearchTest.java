@@ -1,3 +1,5 @@
+package tests;
+
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.TmsLink;
