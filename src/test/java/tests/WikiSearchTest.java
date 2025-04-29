@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.TmsLink;
+import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,6 @@ public class WikiSearchTest extends BaseTest {
         wikiHeadPage.openWiki();
         wikiHeadPage.inputFor("Марси");
         wikiHeadPage.clickSearch();
-        wikiHeadPage.checkResult();
+        Assert.assertTrue(wikiHeadPage.checkResult());
     }
 }

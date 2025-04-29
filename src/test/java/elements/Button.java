@@ -2,10 +2,10 @@ package elements;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.ex.ElementNotFound;
 import io.qameta.allure.Step;
-
 import lombok.Getter;
-import org.junit.jupiter.api.Test;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.time.Duration;
 
@@ -15,14 +15,21 @@ public class Button {
         this.name = name;
         this.selector = selector;
     }
+
     @Getter
     private String name;
     private SelenideElement selector;
 
-    @Step ("Нажатие на кнопку")
+    @Step("Нажатие на кнопку")
     public Button clickButton() {
-        selector.shouldBe(Condition.enabled, Duration.ofSeconds(10))
-                .click();
-        return this;
+        if (selector != null) {
+            try {
+                selector.shouldBe(Condition.enabled, Duration.ofSeconds(5))
+                        .click();
+                return this;
+            } catch (ElementNotFound enf) {
+                throw new NoSuchElementException("Не найден элемент '" + selector + "': " + enf.getMessage(), enf);
+            }
+        } else throw new NullPointerException("Ошибка : значение локатора передано пустым.");
     }
 }
