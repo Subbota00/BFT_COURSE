@@ -29,13 +29,8 @@ public class WikiHeadPage {
     }
 
     @Step("Проверить результат поиска")
-    public void checkResult() {
-        try {
-            siteSub.checkValue("Материал из Википедии — свободной энциклопедии");
-            System.out.println("Элемент найден");
-        } catch (Throwable e) {
-            System.out.println("Элемент не найден или содержит другой текст");
-            throw e;
-        }
+    public boolean checkResult() {
+        siteSub.checkValue("Материал из Википедии — свободной энциклопедии");
+        return true;
     }
 }
